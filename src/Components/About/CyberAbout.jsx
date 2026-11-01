@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { User, Download, Code2, Cpu, Camera, Layers, ShieldCheck, GitMerge } from 'lucide-react';
 import { soundFX } from '../../utils/soundFX';
 
 const CyberAbout = () => {
+  const [photoLoaded, setPhotoLoaded] = useState(false);
+  const [photoError, setPhotoError] = useState(false);
+
   const handleDownloadResume = () => {
     soundFX.playConfirm();
     const contactEl = document.getElementById('contact');
@@ -58,29 +61,29 @@ const CyberAbout = () => {
           />
         </div>
 
-        {/* Main Grid: Photo Placeholder & Biometrics HUD + Detailed Bio */}
+        {/* Profile & Dossier Grid */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '36px',
+            gap: '32px',
             alignItems: 'stretch',
           }}
         >
-          {/* Holographic Photograph Placeholder Box */}
+          {/* Holographic Photograph Dossier Box */}
           <div
             className="cyber-card cyber-corner-reticles"
             style={{
-              padding: '24px',
+              padding: '28px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
+              height: '100%',
             }}
           >
             <div
               style={{
                 position: 'relative',
-                minHeight: '410px',
                 width: '100%',
                 background: 'linear-gradient(135deg, rgba(0, 243, 255, 0.05), rgba(176, 38, 255, 0.05))',
                 border: '1px dashed var(--cyber-border)',
@@ -91,6 +94,7 @@ const CyberAbout = () => {
                 padding: '36px 20px',
                 overflow: 'hidden',
                 borderRadius: '4px',
+                marginBottom: '20px',
               }}
             >
               {/* Futuristic scanning reticle overlay */}
@@ -107,27 +111,49 @@ const CyberAbout = () => {
                 }}
               />
 
+              {/* Holographic Profile Photograph / Biometric Avatar */}
               <div
                 style={{
+                  position: 'relative',
                   width: '120px',
                   height: '120px',
                   borderRadius: '50%',
-                  border: '2px solid var(--neon-cyan)',
+                  border: `2px solid ${photoLoaded ? 'var(--neon-green)' : 'var(--neon-cyan)'}`,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '20px',
+                  marginBottom: '18px',
                   background: 'rgba(0, 243, 255, 0.08)',
-                  boxShadow: '0 0 25px rgba(0, 243, 255, 0.25)',
+                  boxShadow: photoLoaded 
+                    ? '0 0 25px rgba(57, 255, 20, 0.35)' 
+                    : '0 0 25px rgba(0, 243, 255, 0.25)',
+                  overflow: 'hidden',
                 }}
               >
-                <User size={54} color="var(--neon-cyan)" />
+                {!photoError && (
+                  <img
+                    src={`${import.meta.env.BASE_URL}profile.jpg`}
+                    alt="Eman Muneeb"
+                    onLoad={() => setPhotoLoaded(true)}
+                    onError={() => setPhotoError(true)}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: photoLoaded ? 'block' : 'none',
+                    }}
+                  />
+                )}
+
+                {(!photoLoaded || photoError) && (
+                  <User size={50} color="var(--neon-cyan)" />
+                )}
               </div>
 
               <div
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1.05rem',
+                  fontSize: '1.1rem',
                   fontWeight: 700,
                   color: '#ffffff',
                   letterSpacing: '1.5px',
@@ -151,33 +177,41 @@ const CyberAbout = () => {
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.72rem',
-                  color: 'var(--text-muted)',
+                  color: photoLoaded ? 'var(--neon-green)' : 'var(--text-muted)',
                   textAlign: 'center',
                   padding: '8px 16px',
                   background: 'rgba(5, 8, 17, 0.85)',
-                  border: '1px solid var(--cyber-border)',
-                  maxWidth: '90%',
+                  border: `1px solid ${photoLoaded ? 'rgba(57, 255, 20, 0.4)' : 'var(--cyber-border)'}`,
+                  maxWidth: '92%',
                   lineHeight: 1.5,
                 }}
               >
-                [ PHOTOGRAPH UPLINK READY ]<br />
-                Awaiting confirmed high-resolution studio photograph replacement.
+                {photoLoaded ? (
+                  <>
+                    [ BIOMETRIC PHOTOGRAPH CONFIRMED ]<br />
+                    Studio profile photograph uplink verified.
+                  </>
+                ) : (
+                  <>
+                    [ PHOTOGRAPH UPLINK READY ]<br />
+                    Place your photo at <code>public/profile.jpg</code> to activate.
+                  </>
+                )}
               </div>
             </div>
 
-            {/* Quick biometric metadata */}
+            {/* Biometric & Career Telemetry Metadata */}
             <div
               style={{
-                marginTop: '18px',
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '10px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                gap: '12px',
               }}
             >
               <div
                 style={{
                   background: 'rgba(5, 8, 17, 0.6)',
-                  padding: '10px 14px',
+                  padding: '12px 14px',
                   border: '1px solid var(--cyber-border)',
                 }}
               >
@@ -192,7 +226,7 @@ const CyberAbout = () => {
               <div
                 style={{
                   background: 'rgba(5, 8, 17, 0.6)',
-                  padding: '10px 14px',
+                  padding: '12px 14px',
                   border: '1px solid var(--cyber-border)',
                 }}
               >
@@ -203,15 +237,51 @@ const CyberAbout = () => {
                   BS CS (UET Lahore)
                 </div>
               </div>
+
+              <div
+                style={{
+                  background: 'rgba(5, 8, 17, 0.6)',
+                  padding: '12px 14px',
+                  border: '1px solid var(--cyber-border)',
+                }}
+              >
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>
+                  PRIMARY DOMAIN
+                </div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.9rem', color: 'var(--neon-purple)', fontWeight: 600 }}>
+                  Native OS & Cross-Platform
+                </div>
+              </div>
+
+              <div
+                style={{
+                  background: 'rgba(5, 8, 17, 0.6)',
+                  padding: '12px 14px',
+                  border: '1px solid var(--cyber-border)',
+                }}
+              >
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>
+                  VERIFIED CLEARANCE
+                </div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.9rem', color: 'var(--neon-green)', fontWeight: 600 }}>
+                  Active Engineering Node
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Detailed Dossier & Engineering Principles */}
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div
-              className="cyber-card-purple"
-              style={{ padding: '32px', marginBottom: '24px' }}
-            >
+          {/* Detailed Dossier Card */}
+          <div
+            className="cyber-card-purple cyber-corner-reticles"
+            style={{
+              padding: '28px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              height: '100%',
+            }}
+          >
+            <div>
               <h3
                 style={{
                   fontFamily: 'var(--font-ui)',
@@ -219,7 +289,7 @@ const CyberAbout = () => {
                   fontWeight: 700,
                   color: 'var(--neon-purple)',
                   letterSpacing: '1px',
-                  marginBottom: '16px',
+                  marginBottom: '18px',
                   textTransform: 'uppercase',
                 }}
               >
@@ -229,7 +299,7 @@ const CyberAbout = () => {
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '1rem',
+                  fontSize: '0.98rem',
                   lineHeight: 1.8,
                   color: 'var(--text-primary)',
                   marginBottom: '16px',
@@ -241,106 +311,122 @@ const CyberAbout = () => {
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '1rem',
+                  fontSize: '0.98rem',
                   lineHeight: 1.8,
                   color: 'var(--text-secondary)',
-                  marginBottom: '20px',
+                  marginBottom: '24px',
                 }}
               >
                 Specializing in <strong>Native OS (Android / iOS)</strong> and cross-platform ecosystems like <strong>Flutter and React Native</strong>, I engineer robust systems with <strong>Clean Architecture, MVVM, and CI/CD automated release pipelines</strong>. Whether implementing cloud integrations with Firebase or REST APIs, I focus on clean maintainable code, predictive state management, and zero-friction user experiences.
               </p>
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '16px',
+                flexWrap: 'wrap',
+                paddingTop: '16px',
+                borderTop: '1px solid rgba(176, 38, 255, 0.2)',
+              }}
+            >
+              <button
+                onClick={handleDownloadResume}
+                className="cyber-btn"
+                style={{ padding: '10px 22px' }}
+              >
+                <Download size={16} /> DOWNLOAD RESUME [PDF]
+              </button>
 
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '16px',
-                  flexWrap: 'wrap',
+                  gap: '6px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.8rem',
+                  color: 'var(--neon-green)',
                 }}
               >
-                <button
-                  onClick={handleDownloadResume}
-                  className="cyber-btn"
-                  style={{ padding: '10px 22px' }}
-                >
-                  <Download size={16} /> DOWNLOAD RESUME [PDF]
-                </button>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    color: 'var(--neon-green)',
-                  }}
-                >
-                  <ShieldCheck size={16} /> DEVSINC VERIFIED ENGINEER
-                </div>
+                <ShieldCheck size={16} /> DEVSINC VERIFIED ENGINEER
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Core Engineering Pillars - Balanced 2x2 Grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                gap: '16px',
-              }}
-            >
-              {[
-                {
-                  icon: <Layers size={20} color="var(--neon-cyan)" />,
-                  title: 'Software Architect',
-                  desc: 'Enterprise Clean Architecture, decoupled domain boundaries, and bulletproof MVVM data flows.',
-                },
-                {
-                  icon: <Code2 size={20} color="var(--neon-purple)" />,
-                  title: 'Performance-First',
-                  desc: 'Sub-millisecond frame rendering, asset compression, memory leak prevention, and zero-jank 60/120 FPS.',
-                },
-                {
-                  icon: <GitMerge size={20} color="var(--neon-green)" />,
-                  title: 'CI/CD & DevOps Automation',
-                  desc: 'Automated test suites, GitHub Actions build pipelines, and continuous deployment for Android & iOS.',
-                },
-                {
-                  icon: <Camera size={20} color="var(--neon-magenta)" />,
-                  title: 'Creative Precision',
-                  desc: 'A background in visual photography and content creation brings meticulous attention to UI aesthetics and micro-interactions.',
-                },
-              ].map((pillar, i) => (
+        {/* Core Engineering Pillars - Full Width Responsive Grid */}
+        <div style={{ marginTop: '32px' }}>
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              color: 'var(--neon-cyan)',
+              marginBottom: '14px',
+              letterSpacing: '1px',
+            }}
+          >
+            // ARCHITECTURAL FOUNDATION &amp; CORE PILLARS
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '16px',
+            }}
+          >
+            {[
+              {
+                icon: <Layers size={20} color="var(--neon-cyan)" />,
+                title: 'Software Architect',
+                desc: 'Enterprise Clean Architecture, decoupled domain boundaries, and bulletproof MVVM data flows.',
+              },
+              {
+                icon: <Code2 size={20} color="var(--neon-purple)" />,
+                title: 'Performance-First',
+                desc: 'Sub-millisecond frame rendering, asset compression, memory leak prevention, and zero-jank 60/120 FPS.',
+              },
+              {
+                icon: <GitMerge size={20} color="var(--neon-green)" />,
+                title: 'CI/CD & DevOps Automation',
+                desc: 'Automated test suites, GitHub Actions build pipelines, and continuous deployment for Android & iOS.',
+              },
+              {
+                icon: <Camera size={20} color="var(--neon-magenta)" />,
+                title: 'Creative Precision',
+                desc: 'A background in visual photography and content creation brings meticulous attention to UI aesthetics and micro-interactions.',
+              },
+            ].map((pillar, i) => (
+              <div
+                key={i}
+                className="cyber-card"
+                style={{ padding: '22px' }}
+              >
+                <div style={{ marginBottom: '10px' }}>{pillar.icon}</div>
                 <div
-                  key={i}
-                  className="cyber-card"
-                  style={{ padding: '20px' }}
+                  style={{
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '1.05rem',
+                    fontWeight: 700,
+                    color: '#ffffff',
+                    marginBottom: '6px',
+                  }}
                 >
-                  <div style={{ marginBottom: '10px' }}>{pillar.icon}</div>
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-ui)',
-                      fontSize: '1.05rem',
-                      fontWeight: 700,
-                      color: '#ffffff',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    {pillar.title}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '0.82rem',
-                      lineHeight: 1.6,
-                      color: 'var(--text-secondary)',
-                    }}
-                  >
-                    {pillar.desc}
-                  </div>
+                  {pillar.title}
                 </div>
-              ))}
-            </div>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.85rem',
+                    lineHeight: 1.6,
+                    color: 'var(--text-secondary)',
+                  }}
+                >
+                  {pillar.desc}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

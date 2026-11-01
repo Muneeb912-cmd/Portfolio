@@ -90,21 +90,17 @@ const CyberNav = ({ activeSection, onToggleTerminal, fxMode, setFxMode }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 border: '1px solid var(--neon-cyan)',
-                background: 'rgba(0, 243, 255, 0.1)',
+                background: 'rgba(5, 8, 17, 0.9)',
                 clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
-                boxShadow: '0 0 12px rgba(0, 243, 255, 0.3)',
+                boxShadow: '0 0 12px rgba(0, 243, 255, 0.4)',
+                padding: '3px',
               }}
             >
-              <span
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontWeight: 900,
-                  fontSize: '0.9rem',
-                  color: 'var(--neon-cyan)',
-                }}
-              >
-                EM
-              </span>
+              <img
+                src={`${import.meta.env.BASE_URL}favicon.svg`}
+                alt="EM Logo"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
             </div>
 
             <div>

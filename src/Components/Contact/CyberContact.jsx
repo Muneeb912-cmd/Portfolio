@@ -105,16 +105,22 @@ const CyberContact = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '36px',
-            alignItems: 'start',
+            gap: '32px',
+            alignItems: 'stretch',
           }}
         >
-          {/* Contact Details & Channels */}
-          <div>
-            <div
-              className="cyber-card cyber-corner-reticles"
-              style={{ padding: '32px', marginBottom: '24px' }}
-            >
+          {/* Direct Telemetry Card */}
+          <div
+            className="cyber-card cyber-corner-reticles"
+            style={{
+              padding: '32px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              height: '100%',
+            }}
+          >
+            <div>
               <h3
                 style={{
                   fontFamily: 'var(--font-ui)',
@@ -140,12 +146,12 @@ const CyberContact = () => {
                 Whether seeking an experienced mobile software engineer for high-impact employment or a technical consultant to build your next mobile product, initiate contact below.
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '28px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div
                     style={{
-                      width: '36px',
-                      height: '36px',
+                      width: '38px',
+                      height: '38px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -179,8 +185,8 @@ const CyberContact = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div
                     style={{
-                      width: '36px',
-                      height: '36px',
+                      width: '38px',
+                      height: '38px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -202,68 +208,107 @@ const CyberContact = () => {
                 </div>
               </div>
 
-              {/* Social Channels */}
-              <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.15)', paddingTop: '20px' }}>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.75rem',
-                    color: 'var(--text-muted)',
-                    marginBottom: '12px',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Verified Public Identities:
+              {/* Real-time Transmission Telemetry Status */}
+              <div
+                style={{
+                  background: 'rgba(5, 8, 17, 0.65)',
+                  border: '1px solid var(--cyber-border)',
+                  padding: '12px 14px',
+                  marginBottom: '24px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '6px',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-muted)' }}>
+                    UPLINK STATUS
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--neon-green)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--neon-green)', display: 'inline-block', boxShadow: '0 0 6px var(--neon-green)' }} /> ONLINE / READY
+                  </span>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  {[
-                    { icon: <GithubIcon size={18} />, label: 'GitHub', url: 'https://github.com/Muneeb912-cmd', color: '#ffffff' },
-                    { icon: <LinkedinIcon size={18} />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/eman-muneeb-363440225/', color: '#0077b5' },
-                    { icon: <YoutubeIcon size={18} />, label: 'YouTube', url: 'https://youtube.com/@CODINGisFUN-xz2em', color: '#ff0000' },
-                    { icon: <InstagramIcon size={18} />, label: 'Instagram', url: 'https://www.instagram.com/skittleclicks/', color: '#e4405f' },
-                  ].map((soc, i) => (
-                    <a
-                      key={i}
-                      href={soc.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      style={{
-                        padding: '8px 14px',
-                        background: 'rgba(10, 16, 30, 0.8)',
-                        border: '1px solid var(--cyber-border)',
-                        color: 'var(--text-primary)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        textDecoration: 'none',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.78rem',
-                        transition: 'all 0.2s',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = 'var(--neon-cyan)';
-                        soundFX.playBlip();
-                      }}
-                      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--cyber-border)')}
-                    >
-                      {soc.icon} {soc.label}
-                    </a>
-                  ))}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-muted)' }}>
+                    RESPONSE PROTOCOL
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--neon-cyan)' }}>
+                    &lt; 24 Hours Encrypted Reply
+                  </span>
                 </div>
+              </div>
+            </div>
+
+            {/* Social Channels */}
+            <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.15)', paddingTop: '20px' }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.75rem',
+                  color: 'var(--text-muted)',
+                  marginBottom: '12px',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Verified Public Identities:
+              </div>
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                {[
+                  { icon: <GithubIcon size={18} />, label: 'GitHub', url: 'https://github.com/Muneeb912-cmd', color: '#ffffff' },
+                  { icon: <LinkedinIcon size={18} />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/eman-muneeb-363440225/', color: '#0077b5' },
+                  { icon: <YoutubeIcon size={18} />, label: 'YouTube', url: 'https://youtube.com/@CODINGisFUN-xz2em', color: '#ff0000' },
+                  { icon: <InstagramIcon size={18} />, label: 'Instagram', url: 'https://www.instagram.com/skittleclicks/', color: '#e4405f' },
+                ].map((soc, i) => (
+                  <a
+                    key={i}
+                    href={soc.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      padding: '8px 14px',
+                      background: 'rgba(10, 16, 30, 0.8)',
+                      border: '1px solid var(--cyber-border)',
+                      color: 'var(--text-primary)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      textDecoration: 'none',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.78rem',
+                      transition: 'all 0.2s',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--neon-cyan)';
+                      soundFX.playBlip();
+                    }}
+                    onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--cyber-border)')}
+                  >
+                    {soc.icon} {soc.label}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Functional Transmission Form */}
-          <div className="cyber-card-purple cyber-corner-reticles" style={{ padding: '32px' }}>
+          <div
+            className="cyber-card-purple cyber-corner-reticles"
+            style={{
+              padding: '32px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              height: '100%',
+            }}
+          >
             <h3
               style={{
                 fontFamily: 'var(--font-ui)',
-                fontSize: '1.3rem',
+                fontSize: '1.4rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--neon-purple)',
                 marginBottom: '18px',
-                letterSpacing: '0.5px',
+                letterSpacing: '1px',
               }}
             >
               TRANSMIT SECURE DISPATCH
