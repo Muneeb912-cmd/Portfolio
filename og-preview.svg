@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050811" />
+      <stop offset="50%" stop-color="#090d1a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f3ff" />
+      <stop offset="100%" stop-color="#0088ff" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b026ff" />
+      <stop offset="100%" stop-color="#ff007f" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 243, 255, 0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+
+  <!-- Outer Neon Border Frame -->
+  <rect x="30" y="30" width="1140" height="570" fill="none" stroke="rgba(0, 243, 255, 0.3)" stroke-width="2" rx="6" />
+
+  <!-- Corner Brackets -->
+  <path d="M 30 70 L 30 30 L 70 30" fill="none" stroke="#00f3ff" stroke-width="4" />
+  <path d="M 1130 30 L 1170 30 L 1170 70" fill="none" stroke="#00f3ff" stroke-width="4" />
+  <path d="M 30 560 L 30 600 L 70 600" fill="none" stroke="#b026ff" stroke-width="4" />
+  <path d="M 1170 560 L 1170 600 L 1130 600" fill="none" stroke="#b026ff" stroke-width="4" />
+
+  <!-- Header System Telemetry -->
+  <text x="80" y="90" font-family="'Courier New', monospace" font-size="16" fill="#00f3ff" letter-spacing="3">// SYSTEM PROFILE ARCHIVE: EMAN MUNEEB</text>
+  <text x="1000" y="90" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" letter-spacing="2">● LIVE PROTOCOL</text>
+
+  <!-- Main Name Header -->
+  <text x="80" y="220" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="78" fill="#ffffff" letter-spacing="6">EMAN MUNEEB</text>
+
+  <!-- Role Subtitle -->
+  <text x="80" y="280" font-family="'Courier New', monospace" font-weight="700" font-size="28" fill="#00f3ff" letter-spacing="2">MOBILE SOFTWARE ENGINEER &amp; ARCHITECT</text>
+
+  <!-- Devsinc & UET Telemetry Chips -->
+  <g transform="translate(80, 320)">
+    <rect x="0" y="0" width="280" height="42" fill="rgba(0, 243, 255, 0.1)" stroke="#00f3ff" stroke-width="1" rx="4" />
+    <text x="18" y="27" font-family="'Courier New', monospace" font-size="15" fill="#ffffff">ORGANIZATION: DEVSINC</text>
+
+    <rect x="300" y="0" width="340" height="42" fill="rgba(176, 38, 255, 0.1)" stroke="#b026ff" stroke-width="1" rx="4" />
+    <text x="318" y="27" font-family="'Courier New', monospace" font-size="15" fill="#ffffff">ALUMNI: BS CS (UET LAHORE)</text>
+
+    <rect x="660" y="0" width="380" height="42" fill="rgba(57, 255, 20, 0.1)" stroke="#39ff14" stroke-width="1" rx="4" />
+    <text x="678" y="27" font-family="'Courier New', monospace" font-size="15" fill="#39ff14">STATUS: ACTIVE FOR OPPORTUNITIES</text>
+  </g>
+
+  <!-- Core Stacks Badge List -->
+  <g transform="translate(80, 420)">
+    <text x="0" y="0" font-family="'Courier New', monospace" font-size="14" fill="#94a3b8" letter-spacing="2">CORE ARCHITECTURAL STACKS:</text>
+    <text x="0" y="32" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="22" fill="#e6f1ff" letter-spacing="1">Android (Kotlin) • iOS (Swift) • Flutter • React Native • Clean Architecture • MVVM</text>
+  </g>
+
+  <!-- Bottom Terminal Bar -->
+  <line x1="80" y1="520" x2="1120" y2="520" stroke="rgba(0, 243, 255, 0.2)" stroke-width="1" />
+  <text x="80" y="555" font-family="'Courier New', monospace" font-size="16" fill="#64748b">https://muneeb912-cmd.github.io/Portfolio/</text>
+  <text x="960" y="555" font-family="'Courier New', monospace" font-size="16" fill="#00f3ff">emanmuneeb1@gmail.com</text>
+</svg>
+

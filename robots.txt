@@ -1,0 +1,6 @@
+# Robots.txt for Eman Muneeb Cyberpunk Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://muneeb912-cmd.github.io/Portfolio/sitemap.xml
+
