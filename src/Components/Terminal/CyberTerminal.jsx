@@ -73,30 +73,32 @@ const CyberTerminal = ({ isOpen, onClose }) => {
       case 'about':
         newHistory.push(
           '>> DOSSIER: Eman Muneeb',
-          '   Software Engineer & Mobile Application Developer.',
+          '   Software Engineer & Mobile Application Developer at Devsinc.',
           '   Graduated BS Computer Science from UET Lahore (2020-2024).',
-          '   Specializing in Flutter, React Native, and native mobile architecture.',
-          '   Passionate about clean code (MVVM), performance optimization, and creative development.'
+          '   Specializing in Native OS (Android/iOS), Flutter, and React Native.',
+          '   Core Focus: Software Architecture, CI/CD automation, and high-performance mobile systems.'
         );
         break;
 
       case 'skills':
         newHistory.push(
           '>> TECHNOLOGY MATRIX:',
-          '   [Mobile]       : Flutter, Dart, React Native, Kotlin, Java, iOS concepts',
-          '   [Architecture] : MVVM, Clean Architecture, Repository Pattern, BLoC, Redux',
+          '   [Mobile]       : Native OS (Kotlin/Java, Swift), Flutter, Dart, React Native',
+          '   [Architecture] : Software Architecture, Clean Architecture, MVVM, BLoC, Redux',
+          '   [DevOps/CI/CD] : CI/CD Automation, GitHub Actions, Fastlane, Test Runners',
           '   [Backend]      : Firebase (Firestore/Auth), RESTful APIs, Node.js, Express',
           '   [Databases]    : PostgreSQL, SQL Server (SSMS), SQLite, MongoDB',
-          '   [Languages]    : Dart, JavaScript, Python, C#, C++, SQL'
+          '   [Languages]    : Dart, Kotlin, JavaScript, Python, C#, C++, SQL'
         );
         break;
 
       case 'experience':
         newHistory.push(
           '>> CAREER CHRONO:',
-          '   1. Apex Space Ltd. (Jun 2023 - Aug 2023) - MERN Stack Intern',
+          '   1. Devsinc (May 2024 - Present) - Mobile Application Developer',
           '   2. Freelance Mobile Developer (2022 - Present) - Production Flutter & .NET systems',
-          '   3. UET Lahore (2020 - 2024) - Lead Student Engineer & BS CS Graduate'
+          '   3. Apex Space Ltd. (Jun 2023 - Aug 2023) - MERN Stack Intern',
+          '   4. UET Lahore (2020 - 2024) - Lead Student Engineer & BS CS Graduate'
         );
         break;
 

@@ -4,6 +4,21 @@ import { soundFX } from '../../utils/soundFX';
 
 const experiences = [
   {
+    role: 'Mobile Application Developer',
+    organization: 'Devsinc',
+    period: 'May 2024 — Present',
+    location: 'Lahore, Pakistan',
+    type: 'Full-Time Industry Role',
+    description: 'Leading mobile application engineering and software architecture across Native OS and cross-platform mobile platforms at Devsinc. Designing maintainable codebases, establishing robust CI/CD build & release automation, optimizing rendering performance, and driving technical standards.',
+    achievements: [
+      'Architected and delivered high-performance mobile applications utilizing Native OS & Flutter architectures',
+      'Engineered decoupled Clean Architecture and MVVM patterns for scalable codebases',
+      'Configured CI/CD automated testing, build compilation, and store deployment workflows',
+      'Reduced frame latency and memory footprint, ensuring consistent 60/120 FPS performance',
+    ],
+    tech: ['Native OS (Android/iOS)', 'Kotlin', 'Flutter', 'Software Architecture', 'CI/CD', 'REST APIs', 'Git'],
+  },
+  {
     role: 'MERN Stack Engineering Intern',
     organization: 'Apex Space Ltd.',
     period: 'Jun 2023 — Aug 2023',

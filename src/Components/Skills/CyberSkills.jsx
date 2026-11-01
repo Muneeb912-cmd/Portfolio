@@ -19,6 +19,7 @@ const skillsData = [
   { name: 'iOS Development Foundations', category: 'mobile', level: 'Cross-Platform', description: 'Swift concepts, Xcode toolchain, App Store distribution pipelines.' },
   
   // Architecture & Patterns
+  { name: 'Software Architecture', category: 'architecture', level: 'Mastery', description: 'Enterprise system design, modular decoupled architectures, domain modeling, and technical leadership.' },
   { name: 'Clean Architecture', category: 'architecture', level: 'Mastery', description: 'Domain, Data, and Presentation separation for maintainable enterprise applications.' },
   { name: 'MVVM Pattern', category: 'architecture', level: 'Mastery', description: 'Model-View-ViewModel data-binding, decoupled business logic, testable components.' },
   { name: 'Repository Pattern', category: 'architecture', level: 'Mastery', description: 'Abstracted data source layers combining local caching (SQLite) and remote APIs.' },
@@ -36,6 +37,7 @@ const skillsData = [
   { name: 'MongoDB', category: 'database', level: 'Document Store', description: 'BSON schemas, Mongoose ODM, aggregation pipelines for web platforms.' },
 
   // Dev Tools & Languages
+  { name: 'CI/CD & DevOps Automation', category: 'tools', level: 'Production Core', description: 'Automated test runners, GitHub Actions build pipelines, and continuous deployment workflows.' },
   { name: 'Git & GitHub Actions', category: 'tools', level: 'Essential', description: 'Version control branching models, PR workflows, CI/CD automated deployments.' },
   { name: 'C# (.NET / MVC)', category: 'tools', level: 'Enterprise', description: 'Desktop applications, .NET Core MVC, Windows desktop school management systems.' },
   { name: 'Python', category: 'tools', level: 'Scripting & Logic', description: 'Algorithmic problem solving, automated testing scripts, PyQT5 desktop GUI.' },

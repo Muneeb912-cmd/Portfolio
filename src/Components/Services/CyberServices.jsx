@@ -12,10 +12,10 @@ const services = [
   },
   {
     icon: <Layers size={24} color="var(--neon-purple)" />,
-    title: 'Mobile Architecture & State Design',
-    summary: 'Structuring clean, modular enterprise architectures adhering to MVVM, Clean Architecture, and predictable state containers (BLoC, Provider, Redux).',
-    value: 'Eliminates spaghetti code, accelerates feature onboarding, and simplifies automated unit testing.',
-    deliverables: ['Separation of concerns', 'Decoupled domain layers', 'Deterministic state flows'],
+    title: 'Software Architecture & System Design',
+    summary: 'Structuring clean, modular enterprise architectures adhering to MVVM, Clean Architecture, and predictable state containers (BLoC, Provider, Redux) with automated CI/CD integration.',
+    value: 'Eliminates spaghetti code, accelerates feature onboarding, and simplifies automated unit testing & deployment.',
+    deliverables: ['Separation of concerns', 'Decoupled domain layers', 'CI/CD automated test & build flows'],
   },
   {
     icon: <Server size={24} color="var(--neon-green)" />,

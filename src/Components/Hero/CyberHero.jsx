@@ -94,7 +94,7 @@ const CyberHero = ({ onOpenTerminal }) => {
               textTransform: 'uppercase',
             }}
           >
-            SYS_PROTOCOL // UET_CS_GRADUATE // MOBILE_ARCHITECT
+            SYS_PROTOCOL // UET_CS_GRADUATE // DEVSINC // MOBILE_ARCHITECT
           </span>
           <span style={{ color: 'var(--text-muted)' }}>|</span>
           <span
@@ -273,8 +273,8 @@ const CyberHero = ({ onOpenTerminal }) => {
           {[
             { label: 'ACADEMIC ALMA MATER', val: 'UET Lahore (BS CS)', sub: 'Graduated 2024' },
             { label: 'VERIFIED PROJECTS', val: '10+ Mobile & Web', sub: 'Production & Open-Source' },
-            { label: 'INDUSTRY EXPERIENCE', val: 'Apex Space Ltd.', sub: 'MERN Stack Engineering' },
-            { label: 'CORE STACK FOCUS', val: 'Flutter & Native OS', sub: 'Clean MVVM Architecture' },
+            { label: 'INDUSTRY EXPERIENCE', val: 'Devsinc', sub: 'Mobile Application Developer' },
+            { label: 'CORE STACK FOCUS', val: 'Native OS', sub: 'Android & iOS Architecture' },
           ].map((stat, i) => (
             <div
               key={i}

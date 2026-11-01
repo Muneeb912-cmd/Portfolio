@@ -1,14 +1,10 @@
 import React from 'react';
-import { User, Download, Award, Code2, Cpu, Globe, Camera, BookOpen } from 'lucide-react';
+import { User, Download, Code2, Cpu, Camera, Layers, ShieldCheck, GitMerge } from 'lucide-react';
 import { soundFX } from '../../utils/soundFX';
 
 const CyberAbout = () => {
   const handleDownloadResume = () => {
     soundFX.playConfirm();
-    // Provide clean resume download trigger
-    const link = document.createElement('a');
-    link.href = '#contact';
-    // Smooth scroll to contact or offer resume preview
     const contactEl = document.getElementById('contact');
     if (contactEl) {
       contactEl.scrollIntoView({ behavior: 'smooth' });
@@ -68,15 +64,23 @@ const CyberAbout = () => {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '36px',
-            alignItems: 'start',
+            alignItems: 'stretch',
           }}
         >
           {/* Holographic Photograph Placeholder Box */}
-          <div className="cyber-card cyber-corner-reticles" style={{ padding: '24px' }}>
+          <div
+            className="cyber-card cyber-corner-reticles"
+            style={{
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}
+          >
             <div
               style={{
                 position: 'relative',
-                height: '380px',
+                minHeight: '410px',
                 width: '100%',
                 background: 'linear-gradient(135deg, rgba(0, 243, 255, 0.05), rgba(176, 38, 255, 0.05))',
                 border: '1px dashed var(--cyber-border)',
@@ -84,7 +88,9 @@ const CyberAbout = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
+                padding: '36px 20px',
                 overflow: 'hidden',
+                borderRadius: '4px',
               }}
             >
               {/* Futuristic scanning reticle overlay */}
@@ -110,18 +116,18 @@ const CyberAbout = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '16px',
-                  background: 'rgba(0, 243, 255, 0.05)',
-                  boxShadow: '0 0 25px rgba(0, 243, 255, 0.2)',
+                  marginBottom: '20px',
+                  background: 'rgba(0, 243, 255, 0.08)',
+                  boxShadow: '0 0 25px rgba(0, 243, 255, 0.25)',
                 }}
               >
-                <User size={56} color="var(--neon-cyan)" />
+                <User size={54} color="var(--neon-cyan)" />
               </div>
 
               <div
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1rem',
+                  fontSize: '1.05rem',
                   fontWeight: 700,
                   color: '#ffffff',
                   letterSpacing: '1.5px',
@@ -135,10 +141,10 @@ const CyberAbout = () => {
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.75rem',
                   color: 'var(--neon-cyan)',
-                  marginBottom: '14px',
+                  marginBottom: '16px',
                 }}
               >
-                STATUS: VERIFIED DEVELOPER
+                STATUS: DEVSINC MOBILE DEVELOPER
               </div>
 
               <div
@@ -147,10 +153,11 @@ const CyberAbout = () => {
                   fontSize: '0.72rem',
                   color: 'var(--text-muted)',
                   textAlign: 'center',
-                  padding: '6px 16px',
-                  background: 'rgba(5, 8, 17, 0.8)',
+                  padding: '8px 16px',
+                  background: 'rgba(5, 8, 17, 0.85)',
                   border: '1px solid var(--cyber-border)',
-                  maxWidth: '85%',
+                  maxWidth: '90%',
+                  lineHeight: 1.5,
                 }}
               >
                 [ PHOTOGRAPH UPLINK READY ]<br />
@@ -170,29 +177,29 @@ const CyberAbout = () => {
               <div
                 style={{
                   background: 'rgba(5, 8, 17, 0.6)',
-                  padding: '8px 12px',
+                  padding: '10px 14px',
                   border: '1px solid var(--cyber-border)',
                 }}
               >
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>
-                  LOCATION
+                  ORGANIZATION
                 </div>
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.85rem', color: '#ffffff' }}>
-                  Lahore, Pakistan
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.9rem', color: 'var(--neon-cyan)', fontWeight: 600 }}>
+                  Devsinc (May '24 - Pres)
                 </div>
               </div>
 
               <div
                 style={{
                   background: 'rgba(5, 8, 17, 0.6)',
-                  padding: '8px 12px',
+                  padding: '10px 14px',
                   border: '1px solid var(--cyber-border)',
                 }}
               >
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>
                   EDUCATION
                 </div>
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.85rem', color: '#ffffff' }}>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.9rem', color: '#ffffff', fontWeight: 600 }}>
                   BS CS (UET Lahore)
                 </div>
               </div>
@@ -200,7 +207,7 @@ const CyberAbout = () => {
           </div>
 
           {/* Detailed Dossier & Engineering Principles */}
-          <div>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div
               className="cyber-card-purple"
               style={{ padding: '32px', marginBottom: '24px' }}
@@ -228,7 +235,7 @@ const CyberAbout = () => {
                   marginBottom: '16px',
                 }}
               >
-                I am a Software Engineer and Mobile Application Developer graduated in Computer Science from the <strong>University of Engineering and Technology (UET) Lahore</strong>. My journey blends deep curiosity for software craftsmanship with practical industry experience delivering production-grade applications.
+                I am a Software Engineer and Mobile Application Developer at <strong>Devsinc</strong>, having graduated in Computer Science from the <strong>University of Engineering and Technology (UET) Lahore</strong>. My journey blends deep curiosity for software craftsmanship with practical industry experience delivering production-grade applications.
               </p>
 
               <p
@@ -240,7 +247,7 @@ const CyberAbout = () => {
                   marginBottom: '20px',
                 }}
               >
-                Whether architecting cross-platform mobile solutions in <strong>Flutter and React Native</strong>, building native Android experiences, or implementing resilient backend services with <strong>Firebase, REST APIs, and the MERN stack</strong>, I focus on clean maintainable code, predictive state management (MVVM, BLoC, Redux), and zero-friction user experiences.
+                Specializing in <strong>Native OS (Android / iOS)</strong> and cross-platform ecosystems like <strong>Flutter and React Native</strong>, I engineer robust systems with <strong>Clean Architecture, MVVM, and CI/CD automated release pipelines</strong>. Whether implementing cloud integrations with Firebase or REST APIs, I focus on clean maintainable code, predictive state management, and zero-friction user experiences.
               </p>
 
               <div
@@ -266,49 +273,54 @@ const CyberAbout = () => {
                     gap: '6px',
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.8rem',
-                    color: 'var(--neon-cyan)',
+                    color: 'var(--neon-green)',
                   }}
                 >
-                  <Award size={16} /> APEX SPACE CERTIFIED
+                  <ShieldCheck size={16} /> DEVSINC VERIFIED ENGINEER
                 </div>
               </div>
             </div>
 
-            {/* Core Engineering Pillars */}
+            {/* Core Engineering Pillars - Balanced 2x2 Grid */}
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
                 gap: '16px',
               }}
             >
               {[
                 {
-                  icon: <Cpu size={20} color="var(--neon-cyan)" />,
-                  title: 'Clean Architecture',
-                  desc: 'Separation of concerns, decoupled domain logic, and bulletproof MVVM data flows.',
+                  icon: <Layers size={20} color="var(--neon-cyan)" />,
+                  title: 'Software Architect',
+                  desc: 'Enterprise Clean Architecture, decoupled domain boundaries, and bulletproof MVVM data flows.',
                 },
                 {
                   icon: <Code2 size={20} color="var(--neon-purple)" />,
                   title: 'Performance-First',
-                  desc: 'Sub-millisecond frame rendering, asset compression, memory leak prevention, and fast startup.',
+                  desc: 'Sub-millisecond frame rendering, asset compression, memory leak prevention, and zero-jank 60/120 FPS.',
+                },
+                {
+                  icon: <GitMerge size={20} color="var(--neon-green)" />,
+                  title: 'CI/CD & DevOps Automation',
+                  desc: 'Automated test suites, GitHub Actions build pipelines, and continuous deployment for Android & iOS.',
                 },
                 {
                   icon: <Camera size={20} color="var(--neon-magenta)" />,
                   title: 'Creative Precision',
-                  desc: 'A background in visual photography and content creation brings meticulous attention to UI aesthetics.',
+                  desc: 'A background in visual photography and content creation brings meticulous attention to UI aesthetics and micro-interactions.',
                 },
               ].map((pillar, i) => (
                 <div
                   key={i}
                   className="cyber-card"
-                  style={{ padding: '18px' }}
+                  style={{ padding: '20px' }}
                 >
                   <div style={{ marginBottom: '10px' }}>{pillar.icon}</div>
                   <div
                     style={{
                       fontFamily: 'var(--font-ui)',
-                      fontSize: '1rem',
+                      fontSize: '1.05rem',
                       fontWeight: 700,
                       color: '#ffffff',
                       marginBottom: '6px',
@@ -345,4 +357,3 @@ const CyberAbout = () => {
 };
 
 export default CyberAbout;
-
