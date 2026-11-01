@@ -4,15 +4,13 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-
-
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <BrowserRouter>
-        <App />      
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <App />      
     </BrowserRouter>
   </StrictMode>
 );

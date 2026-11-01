@@ -3,16 +3,13 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import Index from './Pages/Index';
 import PortfolioDetails from './Pages/Details';
 
-
-
 const App = () => {
-
-
   return (
     <div style={{ height: '100%', width: '100%' }}>
       <Routes>
         <Route path="/" element={<Index />} />       
         <Route path="/details" element={<PortfolioDetails />} />       
+        <Route path="*" element={<Index />} />
       </Routes>
       <Outlet />
     </div>
